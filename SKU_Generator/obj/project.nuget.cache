@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "KJkK0kHcxhYJ7Anc1JWCu72cvuGP/afVwp7KnMiL6y6LJOMS9sI/De87W+l2z62YEbTcIB5xGT462E4mz40c8g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\AkhilMohan\\Desktop\\Project\\SKU_GEnerator\\SKU_Generator\\SKU_Generator\\SKU_Generator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AkhilMohan\\.nuget\\packages\\fontawesome.sharp\\6.2.1\\fontawesome.sharp.6.2.1.nupkg.sha512"
+  ],
+  "logs": []
+}
