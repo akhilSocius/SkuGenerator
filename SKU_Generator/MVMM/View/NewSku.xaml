@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SKU_Generator.MVMM.View"
-        mc:Ignorable="d" Height="877" Width="1338">
+        mc:Ignorable="d" Height="750" Width="1338">
 
 
     <Grid>
@@ -21,7 +21,7 @@
                     <RowDefinition Height="72"></RowDefinition>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button BorderThickness="0.5" Content="Click here to start"  Grid.Row="0" Margin="105,24,141,17"/>
+                <Button BorderThickness="0.5" Content="Click here to start"  Grid.Row="0" Margin="105,24,141,17" Click="Button_Click_1"/>
                 <Border Grid.Row="1">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -75,14 +75,46 @@
                             <Button Height="27" Width="59" Margin="130,13,0,0" Content="&gt;&gt;"></Button>
                         </StackPanel>
                         <StackPanel Grid.Column="1" HorizontalAlignment="Left" Width="196">
-                            <ComboBox BorderBrush="AliceBlue" Margin="0,0,0,0" Background="Transparent"></ComboBox>
+                            <ComboBox 
+                                x:Name="SourceCombo" 
+                                Visibility="Hidden" 
+                                BorderBrush="AliceBlue" 
+                                Margin="0,0,0,0" 
+                                Background="Transparent"
+                                SelectionChanged="SourceCombo_SelectionChanged">
+                                
+                            </ComboBox>
                             <ComboBox BorderBrush="AliceBlue" Margin="0,30,0,0" Height="37"></ComboBox>
-                            <ComboBox BorderBrush="AliceBlue" Margin="0,15,0,0"></ComboBox>
+                            <ComboBox 
+                                BorderBrush="AliceBlue" 
+                                Margin="0,15,0,0"
+                                x:Name="VendorCombo"
+                                Visibility="Hidden">
+                                
+                            </ComboBox>
                             <ComboBox BorderBrush="AliceBlue" Margin="0,16,0,0"></ComboBox>
                             <ComboBox BorderBrush="AliceBlue" Margin="0,19,0,0"></ComboBox>
-                            <ComboBox BorderBrush="AliceBlue" Margin="0,20,0,0"></ComboBox>
-                            <ComboBox BorderBrush="AliceBlue" Margin="0,21,0,0"></ComboBox>
-                            <ComboBox BorderBrush="AliceBlue" Margin="0,20,0,0"></ComboBox>
+                            <ComboBox 
+                                Visibility="Hidden"
+                                BorderBrush="AliceBlue" 
+                                Margin="0,20,0,0"
+                                x:Name="CategoryCombo">
+                                
+                            </ComboBox>
+                            <ComboBox 
+                                 Visibility="Hidden"
+                                BorderBrush="AliceBlue" 
+                                Margin="0,21,0,0"
+                                x:Name="subCategoriesCombo">
+                                
+                            </ComboBox>
+                            <ComboBox 
+                               
+                                BorderBrush="AliceBlue" 
+                                Margin="0,20,0,0"
+                                >
+                                
+                            </ComboBox>
                             <ListBox
                                     Height="155" Width="182"
                                     Background="Transparent"
@@ -107,8 +139,8 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="420"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                   
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0">
                     <Grid>
@@ -195,6 +227,27 @@
                                     Width="300"
                                      Content="Submit parameters"
                                         Margin="0,14,0,0"/>
+                        <TextBlock Text="Choose operation code" Foreground="White"
+                                           FontSize="20"
+                                           Margin="0,15,24,10"
+                                   TextAlignment="Right"
+                                   ></TextBlock>
+                        <ComboBox Width="200"
+                                  Margin="350,0,0,0"
+                                  x:Name="OperationCodeCombo">
+                            
+                            
+                        </ComboBox>
+                        <TextBlock Text="Choose Logo code" Foreground="White"
+                                           FontSize="20"
+                                           Margin="0,15,24,10"
+                                   TextAlignment="Right"
+                                   ></TextBlock>
+                        <ComboBox Width="200"
+                                  Margin="350,0,0,0"
+                                  x:Name="LogoCodeCombo"
+                                  Visibility="Hidden">
+                        </ComboBox>
                     </StackPanel>
                     
                 </Border>

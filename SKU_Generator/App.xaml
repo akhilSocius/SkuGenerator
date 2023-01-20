@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:SKU_Generator"
              xmlns:viewModel="clr-namespace:SKU_Generator.MVMM.ViewModel"
              xmlns:view="clr-namespace:SKU_Generator.MVMM.View"
-             StartupUri="SKU.xaml">
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <DataTemplate DataType="{x:Type viewModel:NewSku}">
