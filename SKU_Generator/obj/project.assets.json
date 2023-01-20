@@ -45,11 +45,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AkhilMohan\\Desktop\\Project\\SKU_GEnerator\\SKU_Generator\\SKU_Generator\\SKU_Generator.csproj",
+      "projectUniqueName": "C:\\Users\\AkhilMohan\\Desktop\\Project\\SkuGenerator\\SKU_Generator\\SKU_Generator.csproj",
       "projectName": "SKU_Generator",
-      "projectPath": "C:\\Users\\AkhilMohan\\Desktop\\Project\\SKU_GEnerator\\SKU_Generator\\SKU_Generator\\SKU_Generator.csproj",
+      "projectPath": "C:\\Users\\AkhilMohan\\Desktop\\Project\\SkuGenerator\\SKU_Generator\\SKU_Generator.csproj",
       "packagesPath": "C:\\Users\\AkhilMohan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AkhilMohan\\Desktop\\Project\\SKU_GEnerator\\SKU_Generator\\SKU_Generator\\obj\\",
+      "outputPath": "C:\\Users\\AkhilMohan\\Desktop\\Project\\SkuGenerator\\SKU_Generator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

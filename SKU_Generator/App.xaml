@@ -2,14 +2,21 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SKU_Generator"
+             xmlns:viewModel="clr-namespace:SKU_Generator.MVMM.ViewModel"
+             xmlns:view="clr-namespace:SKU_Generator.MVMM.View"
              StartupUri="SKU.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <DataTemplate DataType="{x:Type viewModel:NewSku}">
+                <view:NewSku/>
+            </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ButtonTheme.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Style/UIColours.xaml"/>
                 <ResourceDictionary Source="Style/ButtonStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            
         </ResourceDictionary>
+    
     </Application.Resources>
 </Application>

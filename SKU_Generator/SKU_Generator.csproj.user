@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MVMM\View\NewSku.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="SKU.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,6 +19,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVMM\View\NewSku.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SKU.xaml">

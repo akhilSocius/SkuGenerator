@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\AkhilMohan\Desktop\Project\SKU_GEnerator\SKU_Generator\SKU_Generator\obj\Debug\net7.0-windows\
+C:\Users\AkhilMohan\Desktop\Project\SkuGenerator\SKU_Generator\obj\Debug\net7.0-windows\
 SKU_Generator
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\AkhilMohan\Desktop\Project\SKU_GEnerator\SKU_Generator\SKU_Generator\App.xaml
-577891558
+C:\Users\AkhilMohan\Desktop\Project\SkuGenerator\SKU_Generator\App.xaml
+6-1666723999
 
-4-1060801341
+91171540554
 208468563517
-ButtonTheme.xaml;MainWindow.xaml;SKU.xaml;Style\ButtonStyle.xaml;Style\UIColours.xaml;
+ButtonTheme.xaml;MainWindow.xaml;MVMM\View\NewSku.xaml;SKU.xaml;Style\ButtonStyle.xaml;Style\UIColours.xaml;
 
 False
 

@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:local="clr-namespace:SKU_Generator"
+          xmlns:viewModel="clr-namespace:SKU_Generator.MVMM.ViewModel" d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel}"
         mc:Ignorable="d"
         Title="SKU Generator" WindowState="Maximized" Height="500" Width="500"
+        WindowStyle="None"
         >
+    <Window.DataContext>
+
+        <viewModel:MainViewModel/>
+
+    </Window.DataContext>
     <Grid>
 
        
@@ -16,9 +23,10 @@
                     Grid.Column="1"
                     >
             <Border.Background>
-                <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                    <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
-                    <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
+                <LinearGradientBrush StartPoint="0,2" EndPoint="1,0">
+
+                    <GradientStop Color="#00628d" Offset="0.5"/>
+                    <GradientStop Color="#107dac" Offset="1" />
 
                 </LinearGradientBrush>
             </Border.Background>
@@ -30,17 +38,20 @@
 
                 </Grid.RowDefinitions>
                 <Border CornerRadius="10,0,0,10"
-                    Grid.Row="0">
+                    Grid.Row="0"
+                        >
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,.1" EndPoint="1,1">
-                            <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.3"/>
-                            <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="1"/>
+                            <GradientStop Color="#107dac" Offset="0.1" />
+                            <GradientStop Color="#005073" Offset="0.8" />
+                            
 
                         </LinearGradientBrush>
                     </Border.Background>
-                    <StackPanel>
+                    <StackPanel >
                         <StackPanel Orientation="Horizontal"
                                 Height="35"
+                                    
                                 >
 
                             <TextBlock Text="Sku Generator" Foreground="{StaticResource titleColor2}"
@@ -54,7 +65,7 @@
                             <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color6}"
                                  IsChecked="True"
-                                 Command="{Binding DashViewCommand}"
+                                 Command="{Binding SkuViewCommand}"
                                  x:Name="DashboardButton" Width="99">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="barcode" Style="{StaticResource menuButtonIcon}"/>
@@ -66,7 +77,7 @@
                             <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color6}"
                                  IsChecked="False"
-                                 Command="{Binding DashViewCommand}"
+                                 
                                  Width="99">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="HourglassHalf" Style="{StaticResource menuButtonIcon}"/>
@@ -78,7 +89,7 @@
                             <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color6}"
                                  IsChecked="False"
-                                 Command="{Binding DashViewCommand}"
+                                
                                  Width="99">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="Plus" Style="{StaticResource menuButtonIcon}"/>
@@ -92,11 +103,23 @@
                     </StackPanel>
 
                 </Border>
-                <ContentControl Grid.Row="1"
+                <Border CornerRadius="10,0,0,10"
+                    Grid.Row="1">
+                   
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                            <GradientStop Color="#00628d" Offset="0.1"/>
+                            <GradientStop Color="#0085c0" Offset="1" />
+
+                        </LinearGradientBrush>
+                        </Border.Background>
+                   
+                    <ContentControl Grid.Row="1"
                                     Margin="10"
                                     Content="{Binding CurrentView}">
 
-                </ContentControl>
+                    </ContentControl>
+                </Border>
 
                 <TextBlock
                         Grid.Row="2"

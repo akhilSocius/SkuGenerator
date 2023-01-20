@@ -19,4 +19,8 @@
     <Resource Include="Image\loginHead.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MVMM\model\" />
+  </ItemGroup>
+
 </Project>
