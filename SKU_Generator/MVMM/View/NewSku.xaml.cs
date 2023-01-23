@@ -26,14 +26,18 @@ namespace SKU_Generator.MVMM.View
         private ObservableCollection<MyItem> myItems = new ObservableCollection<MyItem>();
         private ObservableCollection<MyItem> myItems2= new ObservableCollection<MyItem>();
         IEnumerable<string> sourceDataSource = new string[] { "JA Uniforms", "External Vendor" };
+        IEnumerable<string> genderComboSource = new string[] { "M","F","US" }; 
+        IEnumerable<string> InventoryNameSource = new string[] { "Yes", "No" }; 
+ 
         public string connStr =Configuration.ConnectionString;
         public NewSku()
         {
             InitializeComponent();
-            myListBox.ItemsSource = myItems;
-            myListBox1.ItemsSource = myItems;
            
-
+            myListBox1.ItemsSource = myItems;
+            InventoryName.ItemsSource = InventoryNameSource;
+            genderCombo.ItemsSource= genderComboSource;
+            InventoryItemCombo.ItemsSource= InventoryNameSource;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -44,17 +48,13 @@ namespace SKU_Generator.MVMM.View
             myItems.Add(newItem);
 
             // Refresh the ListBox to display the new item
-            myListBox.Items.Refresh();
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             SourceCombo.Visibility= Visibility.Visible;
             SourceCombo.ItemsSource = sourceDataSource;
-
-
-
-
         }
 
         private void SourceCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -288,10 +288,197 @@ namespace SKU_Generator.MVMM.View
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
+        private void VendorCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (VendorCombo.SelectedItem != null)
+            {
+                SkuConstructor.vendorName = VendorCombo.SelectedItem.ToString();
+
+                vendorSelected();
+            }
+        }
+
+        private void vendorSelected()
+        {
+            try
+            {
+                string query = $"select top 1 Abbr from SkuVendorInfo where CompanyName = '{SkuConstructor.vendorName}'";
+
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+                    using (SqlCommand com = new SqlCommand(query, conn))
+                    {
+                        SqlDataReader dr = com.ExecuteReader();
+                        if (dr.HasRows)
+                        {
+                            while (dr.Read())
+                            {
+                                SkuConstructor.vendorAbbr = dr[0].ToString();
+                            }
+
+                        }
+                    }
+                    conn.Close();
+                }
+                //getVendorTable();
+
+                GetStyles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GetStyles()
+        {
+            StylesCombo.ItemsSource = null;
+            SkuConstructor.styles.Clear();
+            
+
+
+            string query = $"select distinct TOP 1  STYLE from StyleMaster WHERE CompanyName = '{SkuConstructor.vendorName}' order by STYLE";
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                using (SqlCommand com = new SqlCommand(query, conn))
+                {
+                    SqlDataReader dr = com.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            SkuConstructor.styles.Add(dr[0].ToString());
+                        }
+
+
+                        StylesCombo.ItemsSource = SkuConstructor.styles;
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("No Styles found for selected vendor", "Alert");
+                    }
+                }
+                conn.Close();
+            }
+
+
+
+        }
+
+        private void StylesCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TextBoxDescr.Text = null;
+
+            try
+            {
+                SkuConstructor.styleName = StylesCombo.SelectedItem.ToString();
+
+
+                string query = $"select top 1 StyleName from StyleMaster WHERE ISNULL(StyleName,'')!='' and CompanyName = '{SkuConstructor.vendorName}' and STYLE = '{SkuConstructor.styleName}'";
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+                    using (SqlCommand com = new SqlCommand(query, conn))
+                    {
+                        SqlDataReader dr = com.ExecuteReader();
+
+                        if (dr.HasRows)
+                        {
+                            while (dr.Read())
+                            {
+                                TextBoxDescr.Text = dr[0].ToString();
+                            }
+                        }
+                        else
+                        {
+                            TextBoxDescr.Text = "No Style description found";
+                        }
+                    }
+                    conn.Close();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
+
+           refreshColor();
+        }
+        private async void refreshColor()
+        {
+            try
+            {
+
+                ProjectBox.Items.Clear();
+
+                SkuConstructor.colors.Clear();
+                SkuConstructor.colorsParam.Clear();
+                SkuConstructor.selectedColors.Clear();
+                SkuConstructor.selectedColorsParam.Clear();
+                //mainCList.Clear();
+                //newCList.Clear();
+
+
+
+
+                //  string query = $"select distinct ColorName from StyleMaster WHERE CompanyName = '{SkuConstructor.vendorName}' and STYLE = '{SkuConstructor.styleName}' ORDER BY ColorName";
+                string query = $"select distinct ColorName from StyleMaster WHERE CompanyName = 'SANMAR' and STYLE = '054X' ORDER BY ColorName";
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+                    using (SqlCommand com = new SqlCommand(query, conn))
+                    {
+                        SqlDataReader dr = com.ExecuteReader();
+
+                        if (dr.HasRows)
+                        {
+                            while (dr.Read())
+                            {
+                                SkuConstructor.colors.Add(dr[0].ToString());
+                                
+                            }
+                            foreach (string i in SkuConstructor.colors)
+                            {
+                                ProjectBox.Items.Add(new Projects()
+                                {
+                                    Code =i,
+
+
+                                });
+                            }
+
+
+
+                        }
+                        else
+                        {
+                            System.Windows.MessageBox.Show("No Colors found for selected Style", "Alert");
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
+        }
     }
     public class MyItem
     {
         public string Name { get; set; }
         public bool IsChecked { get; set; }=false;
+    }
+    public class Projects
+    {
+        public string Code { get; set; }
+
+        public bool tick { get; set; }
     }
 }

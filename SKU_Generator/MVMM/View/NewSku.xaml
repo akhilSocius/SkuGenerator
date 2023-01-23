@@ -76,6 +76,7 @@
                         </StackPanel>
                         <StackPanel Grid.Column="1" HorizontalAlignment="Left" Width="196">
                             <ComboBox 
+                                
                                 x:Name="SourceCombo" 
                                 Visibility="Hidden" 
                                 BorderBrush="AliceBlue" 
@@ -84,16 +85,27 @@
                                 SelectionChanged="SourceCombo_SelectionChanged">
                                 
                             </ComboBox>
-                            <ComboBox BorderBrush="AliceBlue" Margin="0,30,0,0" Height="37"></ComboBox>
+                            <ComboBox 
+                                BorderBrush="AliceBlue" 
+                                Margin="0,30,0,0" Height="37"
+                                x:Name="InventoryName"></ComboBox>
                             <ComboBox 
                                 BorderBrush="AliceBlue" 
                                 Margin="0,15,0,0"
                                 x:Name="VendorCombo"
-                                Visibility="Hidden">
+                                Visibility="Hidden"
+                                SelectionChanged="VendorCombo_SelectionChanged">
                                 
                             </ComboBox>
-                            <ComboBox BorderBrush="AliceBlue" Margin="0,16,0,0"></ComboBox>
-                            <ComboBox BorderBrush="AliceBlue" Margin="0,19,0,0"></ComboBox>
+                            <ComboBox 
+                                BorderBrush="AliceBlue" 
+                                Margin="0,16,0,0"
+                                x:Name="StylesCombo"
+                                SelectionChanged="StylesCombo_SelectionChanged"></ComboBox>
+                            <ComboBox 
+                                BorderBrush="AliceBlue" 
+                                Margin="0,19,0,0"
+                                x:Name="genderCombo"></ComboBox>
                             <ComboBox 
                                 Visibility="Hidden"
                                 BorderBrush="AliceBlue" 
@@ -112,6 +124,7 @@
                                
                                 BorderBrush="AliceBlue" 
                                 Margin="0,20,0,0"
+                                x:Name="InventoryItemCombo"
                                 >
                                 
                             </ComboBox>
@@ -154,15 +167,42 @@
                                 <Button Height="25" 
                                         Width="150"
                                         Margin="0,24,0,0" Click="Button_Click" Content="Select all"></Button>
-                                <ListBox x:Name="myListBox" Height="300" Margin="10,25,0,0" Background="Transparent" Foreground="White">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <CheckBox  Background="Transparent" BorderBrush="Black" BorderThickness="1" x:Name="myCheckBox" Content="{Binding}" IsChecked="{Binding IsChecked}" />
+                                <DataGrid Grid.Column="1"
+                      IsEnabled="True"
+                      IsReadOnly="True"                                      
+                      Height="299"
+                      Margin="20,24,20,0"
+                      x:Name="ProjectBox"
+                      SelectionMode="Single"
+                      Foreground="Black"
+                      >
 
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Header="#" 
+                                            x:Name="Projectcheck" IsReadOnly="False">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                   
+                                                    <CheckBox IsChecked="{Binding tick, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                                 ></CheckBox>
 
-                                </ListBox>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+
+
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTextColumn 
+                                        Header="Colours"
+                                        Width="*"
+                                        Binding="{Binding Code}"
+                                        x:Name="CodeCol"></DataGridTextColumn>
+                                      
+
+
+                                    </DataGrid.Columns>
+
+                                </DataGrid>
                                 <Button Height="25" 
                                     Width="150"
                                      Content="Lock colours"
@@ -220,7 +260,8 @@
                                  Foreground="Black"
                                  Height="25"
                                  Width="500"
-                                 Margin="-65,20,0,0">
+                                 Margin="-65,20,0,0"
+                                 x:Name="TextBoxDescr">
                             
                         </TextBox>
                         <Button Height="30" 
