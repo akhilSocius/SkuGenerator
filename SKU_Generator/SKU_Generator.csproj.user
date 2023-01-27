@@ -10,6 +10,9 @@
     <Compile Update="MVMM\View\NewSku.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVMM\View\SkuSim.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="SKU.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVMM\View\NewSku.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVMM\View\SkuSim.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SKU.xaml">

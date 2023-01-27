@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\SupportOne\SkuGenerator\SKU_Generator\App.xaml
-6-1666723999
+7-379941925
 
-121079460703
+14-311719926
 211-1415340242
-ButtonTheme.xaml;MainWindow.xaml;MVMM\View\NewSku.xaml;SKU.xaml;Style\ButtonStyle.xaml;Style\UIColours.xaml;
+ButtonTheme.xaml;MainWindow.xaml;MVMM\View\NewSku.xaml;MVMM\View\SkuSim.xaml;SKU.xaml;Style\ButtonStyle.xaml;Style\UIColours.xaml;
 
 False
 

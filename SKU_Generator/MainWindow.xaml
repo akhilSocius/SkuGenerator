@@ -79,7 +79,7 @@
                              Height="19" 
                              Grid.Column="1"
                              FontFamily="helvetica"
-                             FontWeight="Medium"
+                             FontWeight="Light"
                              TextAlignment="Left" 
                              Margin="18,54,13,-34" 
                              Grid.Row="1"

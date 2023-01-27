@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:SKU_Generator"
           xmlns:viewModel="clr-namespace:SKU_Generator.MVMM.ViewModel" d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel}"
         mc:Ignorable="d"
-        Title="SKU Generator" WindowState="Maximized" Height="500" Width="500"
+        Title="MainWindow" WindowState="Maximized" Height="500" Width="500"
         WindowStyle="None"
         >
     <Window.DataContext>
@@ -66,7 +66,7 @@
                                  Tag="{StaticResource color6}"
                                  IsChecked="True"
                                  Command="{Binding SkuViewCommand}"
-                                 x:Name="DashboardButton" Width="99">
+                                 x:Name="NewSkuButton" Width="99">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="barcode" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="New Sku" Style="{StaticResource menuButtontext}"/>
@@ -74,8 +74,11 @@
 
                                 </StackPanel>
                             </RadioButton>
-                            <RadioButton Style="{StaticResource menuButton}"
+                            <RadioButton 
+                                x:Name="SkuSimButton"
+                                Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color6}"
+                                 Command="{Binding SkuSimCommand}"
                                  IsChecked="False"
                                  
                                  Width="99">

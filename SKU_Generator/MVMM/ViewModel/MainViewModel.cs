@@ -11,14 +11,16 @@ namespace SKU_Generator.MVMM.ViewModel
         class MainViewModel : ObservableObject
         {
            
-            public RelayCommand SkuViewCommand { get; set; }
-           
+        public RelayCommand SkuViewCommand { get; set; }
+        public RelayCommand SkuSimCommand { get; set; }
 
-            public NewSku NewSku { get; set; }
 
-          
+        public NewSku NewSku { get; set; }
+        public SkuSim skuSim { get; set; }
 
-            private object _currentView;
+
+
+        private object _currentView;
 
 
             public object CurrentView
@@ -34,6 +36,7 @@ namespace SKU_Generator.MVMM.ViewModel
             {
             
               NewSku = new NewSku();
+              skuSim=new SkuSim();
                
 
                 CurrentView = NewSku;
@@ -43,14 +46,19 @@ namespace SKU_Generator.MVMM.ViewModel
             //    CurrentView = HomeVm;
             //});
 
-            SkuViewCommand = new RelayCommand(o =>
+                SkuViewCommand = new RelayCommand(o =>
                 {
                     CurrentView = NewSku;
                 });
+                 SkuSimCommand = new RelayCommand(o =>
+                {
+                    CurrentView = skuSim;
+                });
 
-               
 
-            }
+
+
         }
+    }
     }
 

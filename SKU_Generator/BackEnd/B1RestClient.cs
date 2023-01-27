@@ -40,9 +40,9 @@ namespace SKU_Generator.BackEnd
 
 
 
-        public void Post(string uri, string PostObject, out string status, out string content)
+        public static void Post(string uri, string PostObject, out string status, out string content)
         {
-            if (SessionId == null) Login();
+            
 
             string url = B1Url + uri;
 
@@ -256,6 +256,12 @@ namespace SKU_Generator.BackEnd
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+    }
+    public class ItemModel
+    {
+        public string? ItemCode { get; set; }
+        public string? ItemName { get;set; }
+        public string? InventoryItem { get; set; }
     }
 
 }

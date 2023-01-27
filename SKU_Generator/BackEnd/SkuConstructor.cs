@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace SKU_Generator.BackEnd
         public static List<string> selectedSecondSizes = new();
         public static List<string> selectedSecondSizesParam = new();
 
-        public static List<string> logoCodes = new();
+        public static string? logoCodes=null;
         public static List<string> selectedLogoCodes = new();
 
         public static List<string> operationCodes = new();
@@ -49,6 +50,12 @@ namespace SKU_Generator.BackEnd
         public static string? vendorAbbr = null;
         public static string? revCode = null;
 
+        public static string? shippingCost = null;
+        public static string? margin = null;
+        public static string? isAvailableToAllCust = null;
+        public static string? gender = null;
+        public static string? isInventory = null;
+        public static string? logoCode = null;
 
         public static string? serverURL = null;
         public static string? username = null;
@@ -58,5 +65,6 @@ namespace SKU_Generator.BackEnd
 
 
         public static string? jsonString = null;
+        public static  DataSet ds;
     }
 }

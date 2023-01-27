@@ -10,6 +10,9 @@
             <DataTemplate DataType="{x:Type viewModel:NewSku}">
                 <view:NewSku/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:SkuSim}">
+                <view:SkuSim/>
+            </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ButtonTheme.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Style/UIColours.xaml"/>
