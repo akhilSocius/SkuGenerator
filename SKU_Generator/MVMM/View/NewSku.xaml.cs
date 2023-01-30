@@ -752,7 +752,7 @@ namespace SKU_Generator.MVMM.View
                 SkuConstructor.isInventory = InventoryItemCombo.SelectedItem.ToString();
                 SkuConstructor.logoCode = LogoCode.Text.ToString();
             }
-            catch(NullReferenceException ex)
+            catch(Exception ex)
             {
                 string msg=ex.Message;
             }
@@ -819,29 +819,93 @@ namespace SKU_Generator.MVMM.View
 
         }
 
-      
+        private void ColorsSelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            if (ColorsSelectAll.Content.ToString() == "Select all")
+            {
+                colorList=new List<object>();
+                ColorCheckcheck.Visibility= Visibility.Collapsed;
+                foreach (Projects item in ColorBox.Items)
+                {
+                    colorList.Add(item.Code);
+                }
+                ColorsSelectAll.Content = "Unselect all";
+              
+            }
+            else
+            {
+                ColorCheckcheck.Visibility = Visibility.Visible;
+                colorList = new List<object>();
+                ColorsSelectAll.Content = "Select all";
+                
+            }
+        }
+
+        private void SizeSelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            if (SizeSelectAll.Content.ToString() == "Select all")
+            {
+                sizeList = new List<object>();
+                Sizecheck.Visibility = Visibility.Collapsed;
+                foreach (Projects item in SizeBox.Items)
+                {
+                    sizeList.Add(item.Code);
+                }
+                SizeSelectAll.Content = "Unselect all";
+
+            }
+            else
+            {
+                Sizecheck.Visibility = Visibility.Visible;
+                sizeList = new List<object>();
+                SizeSelectAll.Content = "Select all";
+
+            }
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            if (Size2SelectAll.Content.ToString() == "Select all")
+            {
+                size2List = new List<object>();
+                Size2check.Visibility = Visibility.Collapsed;
+                foreach (Projects item in SizeBox.Items)
+                {
+                    size2List.Add(item.Code);
+                }
+                Size2SelectAll.Content = "Unselect all";
+
+            }
+            else
+            {
+                Size2check.Visibility = Visibility.Visible;
+                size2List = new List<object>();
+                Size2SelectAll.Content = "Select all";
+
+            }
+        }
     }
     public class MyItem
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public bool IsChecked { get; set; }=false;
     }
     public class Projects
     {
-        public string Code { get; set; }
+        public string? Code { get; set; }
 
         public bool tick { get; set; }
     }
     public class CustomerBrief
     {
-        public string odatametadata { get; set; }
-        public Value[] value { get; set; }
+        public string? odatametadata { get; set; }
+        public Value[]? value { get; set; }
     }
 
     public class Value
     {
-        public string odataetag { get; set; }
-        public string CardCode { get; set; }
-        public string CardName { get; set; }
+        public string? odataetag { get; set; }
+        public string? CardCode { get; set; }
+        public string? CardName { get; set; }
     }
 }

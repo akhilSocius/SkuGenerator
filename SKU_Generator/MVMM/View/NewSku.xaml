@@ -210,7 +210,8 @@
                                     Width="150"
                                     Margin="0,24,0,0"
                                     Content="Select all"
-                                    x:Name="ColorsSelectAll"></Button>
+                                    x:Name="ColorsSelectAll" 
+                                    Click="ColorsSelectAll_Click"></Button>
                                 <DataGrid Grid.Column="1"
                       IsEnabled="True"
                       IsReadOnly="True"                                      
@@ -263,7 +264,7 @@
                                     Height="25" 
                                         Width="150"
                                         Margin="0,24,0,0" 
-                                        Content="Select all"
+                                        Content="Select all" Click="SizeSelectAll_Click"
                                         
                                         ></Button>
                                 <DataGrid
@@ -314,9 +315,13 @@
                         </Border>
                         <Border Grid.Column="2">
                             <StackPanel>
-                                <Button Height="25" 
+                                <Button
+                                    x:Name="Size2SelectAll"
+                                        Height="25" 
                                         Width="150"
-                                        Margin="0,24,0,0"  Content="Select all"></Button>
+                                        Margin="0,24,0,0"  Content="Select all" Click="Button_Click_6">
+                                    
+                                </Button>
                                 <DataGrid Grid.Column="1"
                       IsEnabled="True"
                       IsReadOnly="True"                                      
